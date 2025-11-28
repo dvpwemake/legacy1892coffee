@@ -3,10 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legacy 1892 | Legacy1892.coffee</title>
-    <meta name="description" content="Pristine Coffee from Blessed Seeds. Supporting AppChurch Global Foundation.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Legacy 1892 Coffee | Legacy1892.coffee</title>
+    <meta name="description" content="Pristine coffee from rare 1892 Arabica trees, preserved by Christian priests. Support AppChurch Global Foundation’s preservation mission and receive a gift bag with your donation.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://legacy1892.coffee/">
+    <meta name="theme-color" content="#FFFFFF">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Legacy 1892 Coffee">
+    <meta property="og:title" content="Legacy 1892 Coffee | Legacy1892.coffee">
+    <meta property="og:description" content="Pristine coffee from rare 1892 Arabica trees, preserved by Christian priests. Support AppChurch Global Foundation’s preservation mission and receive a gift bag with your donation.">
+    <meta property="og:url" content="https://legacy1892.coffee/">
+    <meta property="og:image" content="https://legacy1892.coffee/img/04fb3e62-69fa-4ae2-a6e1-d7d4833bda54.JPG">
+    <meta property="og:image:alt" content="Legacy 1892 Coffee">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Legacy 1892 Coffee | Legacy1892.coffee">
+    <meta name="twitter:description" content="Pristine coffee from rare 1892 Arabica trees, preserved by Christian priests. Support AppChurch Global Foundation’s preservation mission and receive a gift bag with your donation.">
+    <meta name="twitter:image" content="https://legacy1892.coffee/img/04fb3e62-69fa-4ae2-a6e1-d7d4833bda54.JPG">
+
+    <!-- Icons -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": "https://legacy1892.coffee/#organization",
+            "name": "AppChurch Global Foundation",
+            "email": "info@appchurchglobal.org"
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://legacy1892.coffee/#website",
+            "url": "https://legacy1892.coffee/",
+            "name": "Legacy 1892 Coffee",
+            "inLanguage": "en",
+            "publisher": {
+                "@id": "https://legacy1892.coffee/#organization"
+            }
+        }
+    ]
+}
+    </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
@@ -42,6 +89,22 @@
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- ACCESSIBILITY --- */
+        .skip-link {
+            position: absolute;
+            top: 10px;
+            left: -9999px;
+            background: var(--color-dark);
+            color: var(--color-white);
+            padding: 10px 14px;
+            border-radius: 6px;
+            z-index: 2000;
+        }
+        .skip-link:focus {
+            left: 10px;
+        }
+
         ul { list-style: none; }
 
         /* --- TYPOGRAPHY & UTILS --- */
@@ -81,9 +144,15 @@
         }
 
         .logo {
+            display: inline-block;
             color: var(--color-dark);
             font-size: 1.5rem;
             font-family: var(--font-subheading);
+        }
+        .logo:focus-visible {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 4px;
+            border-radius: 4px;
         }
 
         .nav-links a {
@@ -110,26 +179,48 @@
         .hero {
             position: relative;
             height: 100vh;
+            min-height: 560px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: var(--color-white);
-            overflow: hidden;
+            
+            background-color: #000;
+            background-image: var(--hero-poster);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+overflow: hidden;
+            isolation: isolate;
         }
 
         .hero video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translateX(-50%) translateY(-50%);
+            inset: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            filter: brightness(0.4) contrast(1.1);
+            z-index: 0;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* If the video fails, hide it and rely on the poster/background image */
+        .hero-video.video-error {
+            display: none;
         }
 
         .hero-content h1 {
@@ -537,8 +628,10 @@ html, body { margin: 0; padding: 0; }
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Legacy1892.coffee</div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <a class="logo" href="index.html#home" aria-label="Go to the homepage">Legacy1892.coffee</a>
         <div class="nav-links">
             <a href="#mission">The Story</a>
             <a href="#origin">Legacy & Rare Tree</a>
@@ -547,8 +640,9 @@ html, body { margin: 0; padding: 0; }
         </div>
     </nav>
 
-    <header class="hero" id="home">
-        <video autoplay muted loop playsinline poster="img/04fb3e62-69fa-4ae2-a6e1-d7d4833bda54.JPG">
+    <header class="hero" id="home" style="--hero-poster: url('img/04fb3e62-69fa-4ae2-a6e1-d7d4833bda54.JPG');">
+        <video id="heroVideo" class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="img/04fb3e62-69fa-4ae2-a6e1-d7d4833bda54.JPG" aria-hidden="true" tabindex="-1">
+            <source src="img/legacy1892.mp4" type="video/mp4">
             <source src="img/legacy1892.MP4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -560,6 +654,8 @@ html, body { margin: 0; padding: 0; }
             <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" class="btn-main">Make a Donation</a>
         </div>
     </header>
+
+    <main id="main">
 
     <section id="mission" class="identity">
         <div class="container">
@@ -593,7 +689,7 @@ html, body { margin: 0; padding: 0; }
       <div class="product-card">
         <div class="badge">Pristine Wash Beans</div>
         <div class="product-img">
-          <img src="img/whitebag.png" alt="Legacy 1892 Coffee washed bean">
+          <img src="img/whitebag.png" alt="Legacy 1892 Coffee washed bean" loading="lazy" decoding="async">
         </div>
         <p class="gold-text cinzel">Legacy 1892 Wash Bean</p>
         <h3>$180/Pack (12 Oz)</h3>
@@ -602,7 +698,7 @@ html, body { margin: 0; padding: 0; }
           Preservation support from the limited, blessed yield of the original 1892 trees with stardard wash process.
         </p>
 
-        <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" target="_blank" class="btn-main donate-btn">
+        <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" target="_blank" rel="noopener noreferrer" class="btn-main donate-btn">
           Donate Now
         </a>
 
@@ -612,7 +708,7 @@ html, body { margin: 0; padding: 0; }
       <div class="product-card">
         <div class="badge">Rare 64 Hours Ferment Beans</div>
         <div class="product-img">
-          <img src="img/blackbag.png" alt="Legacy 1892 Coffee ferm bean">
+          <img src="img/blackbag.png" alt="Legacy 1892 Coffee ferm bean" loading="lazy" decoding="async">
         </div>
         <p class="gold-text cinzel">Legacy 1892 Special Ferment</p>
         <h3>$180/Bag (12 Oz)</h3>
@@ -622,7 +718,7 @@ html, body { margin: 0; padding: 0; }
           Preservation support from the limited, blessed yield of the original 1892 trees via 64 hours of fermentation.
         </p>
 
-        <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" target="_blank" class="btn-main donate-btn">
+        <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" target="_blank" rel="noopener noreferrer" class="btn-main donate-btn">
           Donate Now
         </a>
 
@@ -636,7 +732,7 @@ html, body { margin: 0; padding: 0; }
         <div class="container">
             <div class="origin-grid">
                 <div class="origin-img">
-                    <img src="img/Legacy1.JPG" alt="Rare 1892 Coffee Trees">
+                    <img src="img/Legacy1.JPG" alt="Rare 1892 Coffee Trees" loading="lazy" decoding="async">
                 </div>
                 <div class="origin-text">
                     <span class="cinzel gold-text">Preservation Project</span>
@@ -647,7 +743,6 @@ html, body { margin: 0; padding: 0; }
                     <br>
                     <p>
                         Brought from Ethiopia during the sorrowful era of the slave trade and planted in 1892, these seeds were carried across the sea and given new life in the sheltered, mineral-rich soil of the Yucatán Crater. Here, under God’s kind providence, they have thrived for more than a century. The flavor of their beans is unlike any other: pure, deep, and luminous, as though the Garden itself still lingers in every cup.
-                    </p>
                     </p>
                     <br>
                     <p>
@@ -688,7 +783,7 @@ html, body { margin: 0; padding: 0; }
                         <strong>God miraculously shielded his place during the 2025 Pacific Palisades fire</strong> 
                         while the entire neighborhood burned. 
                     </p>
-                    <img class="miracle-img" src="img/lafire.jpg" alt="LA fire" loading="lazy">
+                    <img class="miracle-img" src="img/lafire.jpg" alt="Pacific Palisades fire aftermath" loading="lazy" decoding="async">
                     <br>
                     <p class="serif-italic">
                         Each sip offers peace, reflecting His protective grace, a truly very blessed coffee bean.
@@ -727,10 +822,9 @@ html, body { margin: 0; padding: 0; }
             </div>
         </div>
     </section>
-    </section>
 
 <section class="full-bleed-image" aria-label="Legacy banner">
-  <img src="img/legacy2.jpg" alt="Legacy 1892 banner">
+  <img src="img/legacy2.jpg" alt="Legacy 1892 banner" loading="lazy" decoding="async">
 </section>
 
 <footer>
@@ -753,12 +847,44 @@ html, body { margin: 0; padding: 0; }
 
     <script>
       document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+      (function () {
+        const v = document.getElementById('heroVideo');
+        if (!v) return;
+
+        // Best chance of autoplay across browsers (still may be blocked on some mobile settings)
+        v.muted = true;
+        v.defaultMuted = true;
+        v.playsInline = true;
+        v.setAttribute('playsinline', '');
+        v.setAttribute('webkit-playsinline', '');
+
+        const tryPlay = () => {
+          const p = v.play();
+          if (p && typeof p.catch === 'function') {
+            p.catch(() => {
+              // Autoplay blocked: show controls so the user can start playback.
+              v.setAttribute('controls', 'controls');
+            });
+          }
+        };
+
+        if (v.readyState >= 2) tryPlay();
+        else v.addEventListener('canplay', tryPlay, { once: true });
+
+        v.addEventListener('error', () => {
+          // Hide the broken video element; poster/background will remain visible.
+          v.classList.add('video-error');
+        }, { once: true });
+      })();
+
     </script>
   </div>
 </footer>
 
 
 
+</main>
 
 </body>
 </html>

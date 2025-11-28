@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy 1892 | Legacy1892.coffee</title>
+    <meta name="description" content="Pristine Coffee from Blessed Seeds. Supporting AppChurch Global Foundation.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & VARIABLES (Pristine & Clean Palette) --- */
+        :root {
+            --color-gold: #C0A06B;      /* Elegant Warm Gold Accent */
+            --color-dark: #1D1D1D;      /* Deep Espresso/Charcoal Contrast */
+            --color-light-bg: #F8F8F8;  /* Pristine Off-White Section Background */
+            --color-white: #FFFFFF;     /* Pure White */
+            --color-text: #333333;      /* Deep Text Color */
+            --font-heading: 'Playfair Display', serif;
+            --font-subheading: 'Cinzel', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-white);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- TYPOGRAPHY & UTILS --- */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+        }
+
+        .gold-text { color: var(--color-gold); }
+        .serif-italic { font-style: italic; }
+        .cinzel { font-family: var(--font-subheading); letter-spacing: 2px; text-transform: uppercase; }
+
+        /* --- KEYFRAMES FOR ANIMATIONS --- */
+        @keyframes subtle-fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes header-h1-reveal {
+            from { opacity: 0; transform: scale(0.95); letter-spacing: 0.5em; }
+            to { opacity: 1; transform: scale(1); letter-spacing: 0.2em; }
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            color: var(--color-dark);
+            font-size: 1.5rem;
+            font-family: var(--font-subheading);
+        }
+
+        .nav-links a {
+            color: var(--color-dark);
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .nav-links a:hover { color: var(--color-gold); opacity: 1; }
+
+        .btn-donate-nav {
+            border: 1px solid var(--color-gold);
+            padding: 8px 20px;
+            border-radius: 2px;
+            color: var(--color-gold);
+        }
+        .btn-donate-nav:hover { background: var(--color-gold); color: var(--color-white); }
+
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+            filter: brightness(0.4) contrast(1.1);
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            /* CSS Animation: Slow, elegant reveal */
+            animation: header-h1-reveal 2.5s ease-out forwards;
+            letter-spacing: 0.2em;
+        }
+        
+        .hero-content p:first-of-type {
+             /* CSS Animation: Delayed Fade-In */
+            animation: subtle-fade-in 1.5s ease-out forwards;
+            animation-delay: 1.5s;
+            opacity: 0;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            font-family: var(--font-subheading);
+            margin-bottom: 40px;
+            color: var(--color-gold);
+            font-weight: 400;
+        }
+
+        .btn-main {
+            background-color: var(--color-gold);
+            color: var(--color-dark);
+            padding: 15px 40px;
+            font-family: var(--font-subheading);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn-main:hover {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: subtle-fade-in 1s ease-out forwards;
+            animation-timeline: view(); /* Scroll-based animation for modern browsers */
+            animation-range: entry 20% cover 50%;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--color-dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title .divider {
+            height: 2px;
+            width: 100px;
+            background: var(--color-gold);
+            margin: 0 auto;
+        }
+
+        /* --- IDENTITY & FAITH --- */
+        .identity {
+            background-color: var(--color-light-bg);
+            text-align: center;
+        }
+
+        .identity p {
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            font-size: 1.1rem;
+            color: var(--color-text);
+            opacity: 0.9;
+        }
+
+        .quote-box {
+            margin-top: 40px;
+            padding: 40px;
+            border: 1px solid var(--color-gold);
+            background: var(--color-white);
+            font-style: italic;
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--color-dark);
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            opacity: 0;
+            animation: subtle-fade-in 1s ease-out forwards;
+            animation-delay: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        /* --- ORIGIN (The Tree) --- */
+        .origin {
+            background-color: var(--color-dark);
+            color: var(--color-light-bg);
+        }
+
+        .origin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .origin-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            transition: transform 0.5s;
+        }
+        
+        .origin-img img:hover {
+            transform: scale(1.02);
+        }
+
+        .origin-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--color-gold);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        .stat h4 {
+            font-family: var(--font-subheading);
+            font-size: 1.8rem;
+            color: var(--color-gold);
+            transition: transform 0.3s;
+        }
+
+        .stat h4:hover {
+            transform: scale(1.1);
+        }
+
+        .stat p { font-size: 0.9rem; opacity: 0.8; }
+
+        /* --- THE MIRACLE (Story) --- */
+        .miracle {
+            background-color: var(--color-white);
+        }
+
+        .story-block {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .miracle-card {
+            background: var(--color-light-bg);
+            padding: 50px;
+            border: 1px solid #e0e0e0;
+            margin-top: 30px;
+            position: relative;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .miracle-card:hover {
+            background-color: var(--color-white);
+        }
+
+        .miracle-card::before {
+            content: "✝";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: var(--color-gold);
+            background: var(--color-white);
+            padding: 0 10px;
+            line-height: 1;
+            border-radius: 50%;
+            border: 4px solid var(--color-light-bg);
+        }
+        .miracle-card .miracle-img{
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;        /* removes inline image baseline gap */
+  border-radius: 16px;   /* optional */
+  object-fit: cover;     /* safe if you later constrain height */
+}
+        
+        /* --- PARTNERSHIP SECTION (NEW) --- */
+        .partnership-section {
+            background-color: var(--color-white);
+            text-align: center;
+        }
+
+        .partnership-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            border: 1px solid #e0e0e0;
+            border-top: 3px solid var(--color-gold);
+        }
+
+        .partnership-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .key-considerations {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .key-considerations h3 {
+            font-family: var(--font-subheading);
+            color: var(--color-dark);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .partner-point {
+            font-size: 1.1rem;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            opacity: 0;
+            animation: subtle-fade-in 1s ease-out forwards;
+            animation-timeline: view();
+            animation-range: entry 20% cover 50%;
+        }
+        /* Sequential Animation Delay */
+        .partner-point:nth-child(1) { animation-delay: 0.1s; }
+        .partner-point:nth-child(2) { animation-delay: 0.3s; }
+        .partner-point:nth-child(3) { animation-delay: 0.5s; }
+
+        .contact-btn {
+            margin-top: 40px;
+            width: auto;
+            padding: 12px 30px;
+            font-size: 1rem;
+        }
+        
+        /* --- DONATION (Product) --- */
+        .donation-section {
+            background-color: var(--color-light-bg);
+            text-align: center;
+        }
+
+        .product-display {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            width: 350px;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            background: var(--color-white);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 300px;
+            background-color: var(--color-light-bg);
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img img {
+            max-height: 100%;
+            width: auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--color-dark);
+            color: var(--color-gold);
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-light-bg);
+            padding: 50px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: var(--color-white);
+            font-family: var(--font-subheading);
+        }
+        .footer-subtitle {
+  margin-top: 0;
+  margin-bottom: 0; /* or 0.25rem if you want a tiny gap */
+}
+
+.footer-logo {
+  margin-bottom: 0; /* if footer-logo is an h1/h2/etc in your CSS */
+  line-height: 1.2;
+}
+
+        
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 3rem; letter-spacing: 0.1em; }
+            .origin-grid { grid-template-columns: 1fr; gap: 40px; }
+            .nav-links { display: none; }
+            nav { justify-content: center; padding: 15px 20px; }
+        }
+        .full-bleed-image{
+  width: 100%;
+  margin: 0;
+}
+
+.full-bleed-image img{
+  display: block;     /* removes baseline gap */
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Optional: make it a consistent “hero strip” height */
+.full-bleed-image.is-fixed-height img{
+  height: 420px;
+  object-fit: cover;
+}
+/* kill gap caused by section/footer default spacing */
+.partnership-section { margin: 0; padding-bottom: 0 !important; }
+.full-bleed-image { margin: 0 !important; padding: 0 !important; line-height: 0; }
+.full-bleed-image img { display: block; width: 100%; height: auto; margin: 0; }
+
+/* remove top spacing on footer so it touches the banner */
+footer { margin: 0 !important; padding-top: 0 !important; }
+
+/* IMPORTANT: browsers add margin to body by default */
+html, body { margin: 0; padding: 0; }
+
+.footer-links{
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+.footer-links a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-links a:hover{
+  text-decoration: underline;
+}
+
+.footer-sep{
+  margin: 0 10px;
+  opacity: 0.7;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Legacy1892.coffee</div>
+        <div class="nav-links">
+            <a href="#mission">The Story</a>
+            <a href="#origin">Legacy & Rare Tree</a>
+            <a href="#miracle">Blessed Grace</a>
+            <a href="#partnership">Partnership</a> <a href="#donate" class="btn-donate-nav">Donate</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <video autoplay muted loop playsinline poster="img/04fb3e62-69fa-4ae2-a6e1-d7d4833bda54.JPG">
+            <source src="img/Legacy1892.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="hero-content">
+            <p class="cinzel">Pristine Coffee from Blessed Seeds</p>
+            <h1>LEGACY 1892 Coffee</h1>
+            <p class="serif-italic">Preserved by Devout Christian Priests</p>
+            <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" class="btn-main">Make a Donation</a>
+        </div>
+    </header>
+
+    <section id="mission" class="identity">
+        <div class="container">
+            <div class="section-title">
+                <span class="cinzel gold-text">The Story Beyond Coffee</span>
+                <h2>Gifts of Grace & Soulful Taste</h2>
+                <div class="divider"></div>
+            </div>
+            <p>
+                This coffee has been cultivated by dedicated Christian Priests on the same rare trees planted in 1892, on one of the oldest coffee farms in the world.
+            </p>
+            <p>
+                Each cup's soulful taste reflects God's gifts, shared with steadfast devotion and humble love. Our coffee is a connection to God's sacred creation, offered not for commerce, but for the sustenance of our nonprofit mission.
+            </p>
+            
+            <div class="quote-box">
+                "Untouched by pollutants, these beans from God-kissed lands offer premium flavor, honoring creation's beauty."
+            </div>
+        </div>
+    </section>
+
+<section id="donate" class="donation-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Support Our Preservation Mission</h2>
+      <p>Receive a gift bag of Legacy 1892 Coffee with your donation.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="product-display">
+      <div class="product-card">
+        <div class="badge">Pristine Wash Beans</div>
+        <div class="product-img">
+          <img src="img/whitebag.png" alt="Legacy 1892 Coffee washed bean">
+        </div>
+        <p class="gold-text cinzel">Legacy 1892 Wash Bean</p>
+        <h3>$180/Pack (12 Oz)</h3>
+        <p>Suggested donation</p>
+        <p class="product-desc">
+          Preservation support from the limited, blessed yield of the original 1892 trees with stardard wash process.
+        </p>
+
+        <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" target="_blank" class="btn-main donate-btn">
+          Donate Now
+        </a>
+
+        <div class="disclaimer">(For donation purposes only; not for resale.)</div>
+      </div>
+
+      <div class="product-card">
+        <div class="badge">Rare 64 Hours Ferment Beans</div>
+        <div class="product-img">
+          <img src="img/blackbag.png" alt="Legacy 1892 Coffee ferm bean">
+        </div>
+        <p class="gold-text cinzel">Legacy 1892 Special Ferment</p>
+        <h3>$180/Bag (12 Oz)</h3>
+        <p>Suggested donation</p>
+        
+        <p class="product-desc">
+          Preservation support from the limited, blessed yield of the original 1892 trees via 64 hours of fermentation.
+        </p>
+
+        <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" target="_blank" class="btn-main donate-btn">
+          Donate Now
+        </a>
+
+        <div class="disclaimer">(For donation purposes only; not for resale.)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section id="origin" class="origin">
+        <div class="container">
+            <div class="origin-grid">
+                <div class="origin-img">
+                    <img src="img/Legacy1.JPG" alt="Rare 1892 Coffee Trees">
+                </div>
+                <div class="origin-text">
+                    <span class="cinzel gold-text">Preservation Project</span>
+                    <h3>The 1892 Original Arabica</h3>
+                    <p>
+                        We are the quiet guardians of one of the last remaining patches of the original Arabica—among the final places on earth where these ancient, untouched trees still grow.
+                    </p>
+                    <br>
+                    <p>
+                        Brought from Ethiopia during the sorrowful era of the slave trade and planted in 1892, these seeds were carried across the sea and given new life in the sheltered, mineral-rich soil of the Yucatán Crater. Here, under God’s kind providence, they have thrived for more than a century. The flavor of their beans is unlike any other: pure, deep, and luminous, as though the Garden itself still lingers in every cup.
+                    </p>
+                    </p>
+                    <br>
+                    <p>
+                        In this quiet crater, beneath wide heavens and ancient stone, a handful of these rare groves endure. They are not many, and time presses close.With reverence and steady hands we tend them—pruning, praying, and protecting—so that this living thread of God’s original creation will not slip away. Each harvest we gather is offered as a small act of thanksgiving: a reminder that, even now, the Lord’s first blessings remain among us, still bearing fruit, still inviting us to taste and see that He is good.
+                    </p>
+
+                    <div class="stat-row">
+                        <div class="stat">
+                            <h4>1892</h4>
+                            <p>Year Planted</p>
+                        </div>
+                        <div class="stat">
+                            <h4>@3,900 Ft</h4>
+                            <p>Elevation</p>
+                        </div>
+                        <div class="stat">
+                            <h4>10+ oz</h4>
+                            <p>Annual Yield Per Tree</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="miracle" class="miracle">
+        <div class="container">
+            <div class="story-block">
+                <div class="section-title">
+                    <span class="cinzel gold-text">Historical Legacy & Protection</span>
+                    <h2>Blessed by Miraculous Grace</h2>
+                    <div class="divider"></div>
+                </div>
+                
+                <div class="miracle-card">
+                    <p>
+                        Roasted by a faithful Christian, these beans carry divine blessings. 
+                        <strong>God miraculously shielded his place during the 2025 Pacific Palisades fire</strong> 
+                        while the entire neighborhood burned. 
+                    </p>
+                    <img class="miracle-img" src="img/LAfire.jpg" alt="LA fire" loading="lazy">
+                    <br>
+                    <p class="serif-italic">
+                        Each sip offers peace, reflecting His protective grace, a truly very blessed coffee bean.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="partnership" class="partnership-section">
+        <div class="container">
+            <div class="section-title">
+                <span class="cinzel gold-text">Collaborate with Us</span>
+                <h2>Partnership Opportunity</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="partnership-content">
+                <p>
+                    We are open to suitable roasting and distribution partners who share our commitment to this sacred, historical legacy. Please review our key considerations for collaboration:
+                </p>
+                <div class="key-considerations">
+                    <ul>
+                        <li class="partner-point">
+                            <span class="gold-text cinzel">1. Vision Alignment:</span> Share our vision and endeavor of preserving the legacy of this rare coffee.
+                        </li>
+                        <li class="partner-point">
+                            <span class="gold-text cinzel">2. Mastery & Artistry:</span> High mastery of the art of roasting and barista craftsmanship.
+                        </li>
+                        <li class="partner-point">
+                            <span class="gold-text cinzel">3. Faith & Integrity:</span> Demonstrated faithfulness and integrity in all business practices.
+                        </li>
+                    </ul>
+                    <a href="mailto:info@appchurchglobal.org" class="btn-main contact-btn">Inquire About Partnership</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+
+<section class="full-bleed-image" aria-label="Legacy banner">
+  <img src="img/legacy2.jpg" alt="Legacy 1892 banner">
+</section>
+
+<footer>
+  <div class="container">
+    <div class="gold-text cinzel">AppChurch Global Foundation</div>
+    <p class="footer-subtitle">501(c)(3) Nonprofit Organization</p>
+    <br>
+
+    <p>Legacy1892: A Project of AppChurch Global Foundation</p>
+    <p>San Diego, CA | New York, NY</p>
+
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <span class="footer-sep">|</span>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+
+    <br>
+    <p>&copy; 2020–<span id="current-year"></span> AppChurch Global Foundation. All rights reserved.</p>
+
+    <script>
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>

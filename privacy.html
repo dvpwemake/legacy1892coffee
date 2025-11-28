@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy | Legacy1892.coffee</title>
+  <meta name="description" content="Privacy Policy for Legacy1892.coffee (a project of AppChurch Global Foundation)." />
+
+  <!-- If your main site already loads these fonts, you can remove them -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- If you have a main stylesheet, you can also include it here -->
+  <!-- <link rel="stylesheet" href="style.css"> -->
+
+  <style>
+    :root{
+      --bg:#070707;
+      --panel:#0f0f10;
+      --panel2:#0b0b0c;
+      --text:#ececec;
+      --muted:#cfcfcf;
+      --gold:#d2b26a;
+      --gold2:#b7924b;
+      --border:rgba(210,178,106,.25);
+      --shadow: 0 12px 35px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1100px;
+    }
+
+    html, body{ margin:0; padding:0; background:var(--bg); color:var(--text); }
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container{
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .cinzel{ font-family: "Cinzel", serif; letter-spacing: .02em; }
+    .serif{ font-family: "Cormorant Garamond", serif; }
+    .gold-text{ color: var(--gold); }
+
+    /* Simple top bar to feel like the main site */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7,7,7,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      text-decoration:none;
+      color: var(--text);
+    }
+    .brand .mark{
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav a{
+      color: var(--text);
+      text-decoration:none;
+      font-size: .95rem;
+      opacity:.9;
+    }
+    .nav a:hover{ opacity:1; text-decoration: underline; text-underline-offset: 4px; }
+
+    /* Page header */
+    .hero{
+      padding: 56px 0 28px;
+      background:
+        radial-gradient(900px 380px at 20% 0%, rgba(210,178,106,.12), transparent 60%),
+        radial-gradient(900px 380px at 80% 0%, rgba(210,178,106,.08), transparent 60%);
+    }
+    .kicker{
+      display:inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(210,178,106,.06);
+      font-size: .9rem;
+    }
+    .hero h1{
+      margin: 14px 0 8px;
+      font-size: clamp(2.0rem, 3.2vw, 2.6rem);
+      line-height: 1.15;
+    }
+    .hero p{
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .divider{
+      width: 86px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 16px 0 0;
+      border-radius: 999px;
+    }
+
+    /* Content */
+    .policy{
+      padding: 22px 0 56px;
+    }
+    .policy-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .policy-card-inner{
+      padding: 26px 22px;
+    }
+    .notice{
+      background: rgba(210,178,106,.08);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    h2{
+      margin: 26px 0 10px;
+      font-size: 1.3rem;
+    }
+    h3{
+      margin: 18px 0 8px;
+      font-size: 1.05rem;
+      color: var(--gold);
+    }
+    p{ margin: 0 0 12px; }
+    ul{ margin: 10px 0 14px 22px; }
+    li{ margin: 8px 0; }
+
+    .toc{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 6px;
+    }
+    .toc a{
+      display:inline-block;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      text-decoration:none;
+      font-size: .9rem;
+      opacity:.92;
+    }
+    .toc a:hover{
+      opacity: 1;
+      border-color: var(--border);
+    }
+
+    /* Footer */
+    footer{
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: var(--panel2);
+      padding: 26px 0;
+    }
+    .footer-links{
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+    .footer-links a{
+      color: inherit;
+      text-decoration: none;
+      opacity: .9;
+    }
+    .footer-links a:hover{
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      opacity: 1;
+    }
+    .footer-sep{
+      margin: 0 10px;
+      opacity: 0.65;
+    }
+
+    /* Small screens */
+    @media (max-width: 520px){
+      .policy-card-inner{ padding: 20px 16px; }
+      .nav{ gap: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="brand" href="index.html" aria-label="Back to home">
+          <span class="cinzel mark">Legacy 1892</span>
+          <span class="serif" style="opacity:.8;">Coffee</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html#donate">Donate</a>
+          <a href="index.html#partnership">Partnership</a>
+          <a href="privacy.html" class="gold-text">Privacy</a>
+          <a href="terms.html">Terms of Use</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="kicker cinzel gold-text">Privacy</span>
+      <h1 class="cinzel">Privacy Policy</h1>
+      <p class="serif">
+        Legacy1892.coffee is a project by <span class="gold-text">AppChurch Global Foundation</span>.
+        This policy describes how information is handled across our websites and services.
+      </p>
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="toc" aria-label="Privacy Policy Table of Contents">
+        <a href="#collection">Collection & Use</a>
+        <a href="#nonpersonal">Non-Personal Info</a>
+        <a href="#cookies">Cookies</a>
+        <a href="#disclosure">Disclosure</a>
+        <a href="#security">Security</a>
+        <a href="#children">Children</a>
+        <a href="#location">Location</a>
+        <a href="#thirdparty">Third-Party</a>
+        <a href="#questions">Questions</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="policy">
+    <div class="container">
+      <article class="policy-card">
+        <div class="policy-card-inner">
+          <div class="notice serif">
+            <strong class="cinzel gold-text">Policy updates:</strong>
+            Updated on <strong>September 20, 2025</strong> and <strong>August 18, 2024</strong>.
+            This page is formatted to match Legacy1892.coffee’s design while keeping the substance consistent with the AppChurch Global privacy policy.
+          </div>
+
+          <h2 id="collection" class="cinzel">Your privacy matters</h2>
+          <p class="serif">
+            Protecting digital assets and privacy is a core priority. This policy explains what information may be collected,
+            how it may be used, and the choices you may have.
+          </p>
+
+          <h2 class="cinzel">Collection and Use of Personal Information</h2>
+          <p class="serif">
+            “Personal information” is data that can identify or contact a single person.
+            You may be asked to provide personal information when interacting with AppChurch Global Foundation, its affiliates,
+            or services connected to our websites and products. Where appropriate, affiliates may share information with each
+            other and use it consistently with this policy, including to improve products, services, content, and communications.
+          </p>
+          <p class="serif">
+            You are not required to provide requested personal information; however, if you choose not to, we may be unable
+            to provide certain products/services or respond to specific requests.
+          </p>
+
+          <h3 class="cinzel">Examples of information that may be collected (and how it’s used)</h3>
+          <ul class="serif">
+            <li>
+              In many interactions (such as account creation, purchases, updates, connecting to services, contacting us, surveys),
+              AppChurch states it does not collect certain sensitive/private details (for example: name, address, phone, email,
+              contact preferences, device identifiers, IP/location data, payment details, or social profile details).
+            </li>
+            <li>
+              If you share content with others using our services, send gifts/certificates, or invite others to participate,
+              AppChurch states it does not collect the recipient details you provide (like name, email, address, phone), except
+              to fulfill your request, provide the relevant service, or for anti-fraud purposes.
+            </li>
+            <li>
+              AppChurch states it does not request a government-issued ID for purposes such as wireless account setup/device activation,
+              extending commercial credit, reservations management, or unless required by law.
+            </li>
+          </ul>
+
+          <h3 class="cinzel">How personal information may be used</h3>
+          <p class="serif">
+            AppChurch describes processing personal information only when there is a valid basis (such as consent, legal obligation,
+            contract performance, protecting vital interests, or legitimate interests).
+            Questions about legal basis may be directed to the Data Protection Officer at <a href="mailto:help@appchurchglobal.org" class="gold-text">help@appchurchglobal.org</a>.
+          </p>
+          <ul class="serif">
+            <li>To provide updates about products, software updates, and upcoming events (with opt-out options where applicable).</li>
+            <li>To create, develop, operate, deliver, and improve products, services, content, and communications.</li>
+            <li>For loss prevention and anti-fraud; and for account/network security, including scanning uploads for potentially illegal content (including CSAM).</li>
+            <li>
+              For certain online transactions, details may be validated using publicly accessible sources, limited to what is necessary.
+            </li>
+            <li>To verify identity and determine age-appropriate services (for example, using date of birth for account age checks).</li>
+            <li>
+              To send important notices (like purchase communications and changes to terms/policies). These may be essential and not opt-out.
+            </li>
+            <li>For internal purposes such as auditing, analysis, and research to improve services.</li>
+          </ul>
+
+          <h3 class="cinzel">When information is received from others</h3>
+          <p class="serif">
+            AppChurch notes that personal information may be received from other people when they share content with you, send gifts,
+            or invite you to services/forums. AppChurch also notes it may validate information provided during account creation with a third party
+            for security and fraud-prevention.
+          </p>
+
+          <h2 id="nonpersonal" class="cinzel">Collection and Use of Non-Personal Information</h2>
+          <p class="serif">
+            Non-personal information is data that cannot, by itself, be used to identify a specific individual. AppChurch describes collecting
+            data in such a form and using/disclosing it for various purposes.
+          </p>
+          <ul class="serif">
+            <li>Information such as occupation, language, ZIP/area code, device identifiers, referrer URL, rough location, and time zone to understand behavior and improve services.</li>
+            <li>Aggregated activity data to understand which parts of websites/services are most useful or interesting.</li>
+            <li>Service usage details, including search queries, to improve relevancy; generally not associated with IP except in limited cases for quality.</li>
+            <li>With explicit consent, device/app usage data to help developers improve their apps.</li>
+          </ul>
+          <p class="serif">
+            If non-personal information is combined with personal information, the combined data is treated as personal information as long as it remains combined.
+          </p>
+
+          <h2 id="cookies" class="cinzel">Cookies and Other Technologies</h2>
+          <p class="serif">
+            AppChurch describes using cookies and similar technologies (pixel tags, web beacons) in websites, services, apps, emails, and ads.
+            These help measure effectiveness and understand usage. Cookie-derived data is treated as non-personal unless local law considers identifiers
+            (like IP addresses) personal.
+          </p>
+          <p class="serif">
+            AppChurch also references using “Alpha Browser” as an option for users who do not want cookies tracked, noting that Alpha Browser does not track cookies.
+          </p>
+          <p class="serif">
+            Cookies may be used to remember information and personalize experiences (like language/country, relevant communications, and customer support context).
+          </p>
+
+          <h2 id="disclosure" class="cinzel">Disclosure to Third Parties</h2>
+          <p class="serif">
+            AppChurch states it does not sell personal information and does not share personal information with third parties for their marketing purposes.
+          </p>
+
+          <h3 class="cinzel">Service Providers</h3>
+          <p class="serif">
+            Personal information may be shared with service providers who perform services such as information processing, fulfilling orders, delivery,
+            customer service, customer research/surveys, and related support. Such providers are obligated to protect information and may operate globally.
+          </p>
+
+          <h3 class="cinzel">Other disclosures</h3>
+          <p class="serif">
+            Information may be disclosed when required by law/legal process, litigation, or governmental requests (including across borders).
+            AppChurch also notes disclosure may be necessary for national security, law enforcement, or other public-importance matters, and may be used
+            to enforce terms/conditions or protect operations/users where there is a lawful basis.
+          </p>
+          <p class="serif">
+            In events such as reorganization, merger, or sale, information may be transferred to a relevant third party.
+          </p>
+
+          <h2 id="security" class="cinzel">Protection of Personal Information</h2>
+          <p class="serif">
+            AppChurch describes taking security seriously and using encryption during transit for online services (including mobile apps and websites).
+          </p>
+          <p class="serif">
+            If you post or share content in forums, chat rooms, or social features, that content may be visible to others. You are responsible for information
+            you choose to share in those areas.
+          </p>
+
+          <h2 class="cinzel">Automated Decision-Making (Including Profiling)</h2>
+          <p class="serif">
+            AppChurch states it does not make decisions using algorithms or profiling that significantly affect you.
+          </p>
+
+          <h2 id="children" class="cinzel">Children & Education</h2>
+          <p class="serif">
+            AppChurch emphasizes extra precautions for minors. Minors under 18 are not permitted to use AppChurch unless a parent provided verifiable consent
+            or the account is created through structured child/family sharing processes, or the user has a Managed AppChurch ID through a school (where available).
+          </p>
+
+          <h2 id="location" class="cinzel">Location-Based Services</h2>
+          <p class="serif">
+            To provide location features, AppChurch and partners/licensees may collect and use precise location data (including real-time location) and may use
+            GPS, Bluetooth, IP address, Wi-Fi hotspots, cell towers, and other technologies to determine approximate location.
+          </p>
+          <p class="serif">
+            Unless you consent, this location data is collected anonymously in a manner that does not identify you personally and is used to provide/improve location-based services.
+          </p>
+
+          <h2 id="thirdparty" class="cinzel">Third-Party Sites and Services</h2>
+          <p class="serif">
+            Websites, apps, and services may include links to third-party websites/products/services, or integrate third-party offerings.
+            Information collected by third parties is governed by their own policies, and you’re encouraged to review them.
+          </p>
+          <p class="serif">
+            AppChurch also describes a “Subscriber ID” concept in certain third-party subscription contexts (unique to you and a developer/publisher),
+            used for reporting subscription performance and country of residence. If all subscriptions with a developer/publisher are canceled, the ID may reset after 180 days.
+          </p>
+
+          <h2 class="cinzel">Companywide Commitment</h2>
+          <p class="serif">
+            AppChurch describes communicating privacy and security guidelines internally and enforcing privacy safeguards across the organization.
+          </p>
+
+          <h2 id="questions" class="cinzel">Privacy Questions</h2>
+          <p class="serif">
+            If you have questions or concerns, want to contact the Data Protection Officer, or wish to report a possible breach of local privacy laws,
+            contact: <a class="gold-text" href="mailto:contact@appchurchglobal.org">contact@appchurchglobal.org</a>.
+          </p>
+          <p class="serif">
+            This policy may be updated from time to time. When changes are material, a notice will be posted along with the updated policy.
+          </p>
+
+          <p class="serif" style="margin-top:18px; opacity:.92;">
+            <span class="cinzel gold-text">AppChurch Global Foundation</span><br />
+            San Diego, CA, U.S.A.
+          </p>
+
+          <hr style="border:0;border-top:1px solid rgba(255,255,255,.08); margin: 18px 0;" />
+
+          <p class="serif" style="opacity:.86; margin:0;">
+            Note: This page is for informational purposes and is not legal advice.
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="gold-text cinzel">AppChurch Global Foundation</div>
+      <p class="footer-subtitle">501(c)(3) Nonprofit Organization</p>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <span class="footer-sep">|</span>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+
+      <p style="margin-top:14px;">Legacy1892.coffee: A Project of AppChurch Global Foundation</p>
+      <p>San Diego, CA | New York, NY</p>
+
+      <p style="margin-top:10px;">
+        &copy; 2020–<span id="current-year"></span> AppChurch Global Foundation. All rights reserved.
+      </p>
+
+      <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+      </script>
+    </div>
+  </footer>
+</body>
+</html>

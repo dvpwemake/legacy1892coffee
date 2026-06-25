@@ -78,6 +78,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 88px;
         }
 
         body {
@@ -143,11 +144,16 @@
             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
         }
 
+        .nav-shell {
+            display: contents;
+        }
+
         .logo {
             display: inline-block;
             color: var(--color-dark);
             font-size: 1.5rem;
             font-family: var(--font-subheading);
+            min-width: 0;
         }
         .logo:focus-visible {
             outline: 2px solid var(--color-gold);
@@ -233,6 +239,57 @@
             color: var(--color-gold);
         }
         .btn-donate-nav:hover { background: var(--color-gold); color: var(--color-white); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            gap: 0;
+        }
+
+        .small {
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 44px;
+            height: 44px;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .nav-toggle:focus-visible {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+        .nav-toggle-bar {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--color-dark);
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+        .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        body.nav-open { overflow: hidden; }
 
 
         /* --- HERO SECTION --- */
@@ -538,6 +595,7 @@ overflow: hidden;
         .partner-point:nth-child(1) { animation-delay: 0.1s; }
         .partner-point:nth-child(2) { animation-delay: 0.3s; }
         .partner-point:nth-child(3) { animation-delay: 0.5s; }
+        .partner-point:nth-child(4) { animation-delay: 0.7s; }
 
         .contact-btn {
             margin-top: 40px;
@@ -633,11 +691,163 @@ overflow: hidden;
 
         
         /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .nav-toggle { display: flex; }
+
+            nav {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 12px 18px;
+                gap: 0;
+                z-index: 1100;
+            }
+
+            .nav-shell {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                width: 100%;
+                min-height: 44px;
+            }
+
+            .logo {
+                flex: 1 1 auto;
+                font-size: 1.05rem;
+                line-height: 1.2;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding-right: 8px;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: var(--nav-offset, 68px);
+                bottom: 0;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 12px 22px 28px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                overflow-y: auto;
+                z-index: 1090;
+                pointer-events: none;
+            }
+
+            nav.is-open .nav-links {
+                display: flex;
+                pointer-events: auto;
+            }
+
+            .nav-links a,
+            .nav-links .dropdown-toggle {
+                margin-left: 0;
+                padding: 14px 0;
+                border-bottom: 1px solid #ececec;
+                font-size: 0.95rem;
+                opacity: 1;
+            }
+
+            .nav-links .dropdown {
+                display: block;
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .nav-links .dropdown-content {
+                display: block;
+                position: static;
+                min-width: 0;
+                box-shadow: none;
+                border: none;
+                padding: 0 0 8px 14px;
+                background: transparent;
+            }
+
+            .nav-links .dropdown-content::before { display: none; }
+
+            .nav-links .dropdown-content a {
+                border-bottom: none;
+                padding: 10px 0;
+                font-size: 0.9rem;
+            }
+
+            .nav-links .btn-donate-nav {
+                margin-top: 18px;
+                text-align: center;
+                display: block;
+                border-bottom: none;
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3rem; letter-spacing: 0.1em; }
+            .hero-content {
+                padding: 0 18px;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(2rem, 10vw, 3rem);
+                letter-spacing: 0.08em;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 28px;
+            }
+
+            .hero {
+                min-height: 480px;
+                height: 92vh;
+            }
+
             .origin-grid { grid-template-columns: 1fr; gap: 40px; }
-            .nav-links { display: none; }
-            nav { justify-content: center; padding: 15px 20px; }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+            .section-title h2 {
+                font-size: clamp(1.75rem, 7vw, 2.2rem);
+            }
+
+            .miracle-card {
+                padding: clamp(24px, 6vw, 50px);
+            }
+
+            .quote-box {
+                padding: 24px 18px;
+                font-size: 1.15rem;
+            }
+
+            .stat-row {
+                flex-direction: column;
+                gap: 18px;
+                text-align: center;
+            }
+
+            .partnership-content {
+                padding: 24px 18px;
+            }
+
+            .product-card {
+                width: 100%;
+                max-width: 380px;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .footer-sep { display: none; }
         }
         .full-bleed-image{
   width: 100%;
@@ -727,8 +937,15 @@ html, body { margin: 0; padding: 0; }
     <a class="skip-link" href="#main">Skip to content</a>
 
     <nav aria-label="Primary">
-        <a class="logo" href="index.html#home" aria-label="Go to the homepage">Legacy1892.coffee</a>
-        <div class="nav-links">
+        <div class="nav-shell">
+            <a class="logo" href="index.html#home" aria-label="Go to the homepage">Legacy1892.coffee</a>
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+        </div>
+        <div class="nav-links" id="primary-nav">
             <a href="#mission">The Story</a>
 
             <div class="dropdown">
@@ -992,6 +1209,9 @@ html, body { margin: 0; padding: 0; }
                         <li class="partner-point">
                             <span class="gold-text cinzel">3. Faith & Integrity:</span> Demonstrated faithfulness and integrity in all business practices.
                         </li>
+                        <li class="partner-point">
+                            <span class="gold-text cinzel">4. Health & Wellness:</span> Commitment to brain health, cognitive wellness workshops, and community care through coffee-centered hospitality.
+                        </li>
                     </ul>
                     <a href="mailto:info@appchurchglobal.org" class="btn-main contact-btn">Inquire About Partnership</a>
                 </div>
@@ -1063,6 +1283,50 @@ html, body { margin: 0; padding: 0; }
 
 
 </main>
+
+<script>
+(function () {
+    const nav = document.querySelector('nav[aria-label="Primary"]');
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('primary-nav');
+    if (!nav || !toggle || !navLinks) return;
+
+    const mobileBreakpoint = 1024;
+
+    const updateNavOffset = function () {
+        document.documentElement.style.setProperty('--nav-offset', nav.offsetHeight + 'px');
+    };
+
+    const setMenuState = function (open) {
+        nav.classList.toggle('is-open', open);
+        document.body.classList.toggle('nav-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+
+    toggle.addEventListener('click', function () {
+        updateNavOffset();
+        setMenuState(!nav.classList.contains('is-open'));
+    });
+
+    navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            setMenuState(false);
+        });
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') setMenuState(false);
+    });
+
+    window.addEventListener('resize', function () {
+        updateNavOffset();
+        if (window.innerWidth > mobileBreakpoint) setMenuState(false);
+    });
+
+    updateNavOffset();
+})();
+</script>
 
 </body>
 </html>

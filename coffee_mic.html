@@ -31,7 +31,7 @@
             --font-body: 'Lato', sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; overflow-x: clip; }
+        html { scroll-behavior: smooth; overflow-x: clip; scroll-padding-top: 72px; }
         body {
             font-family: var(--font-body);
             background: var(--color-white);
@@ -55,10 +55,15 @@
             backdrop-filter: blur(8px);
             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
         }
+        .nav-shell {
+            display: contents;
+        }
+
         .logo {
             font-family: var(--font-subheading);
             font-size: 1.2rem;
             color: var(--color-dark);
+            min-width: 0;
         }
         .nav-links a {
             color: var(--color-dark);
@@ -69,6 +74,51 @@
             opacity: 0.85;
         }
         .nav-links a:hover { color: var(--color-gold); opacity: 1; }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 44px;
+            height: 44px;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .nav-toggle:focus-visible {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+        .nav-toggle-bar {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--color-dark);
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+        .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        body.nav-open { overflow: hidden; }
 
         .hero-report {
             position: relative;
@@ -335,22 +385,103 @@
             .hero-image::after {
                 background: linear-gradient(180deg, transparent 40%, rgba(29,29,29,0.55));
             }
-            .nav-links a { margin-left: 14px; font-size: 0.78rem; }
+        }
+        @media (max-width: 1024px) {
+            .nav-toggle { display: flex; }
+
+            nav {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                z-index: 1100;
+            }
+
+            .nav-shell {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                width: 100%;
+                min-height: 44px;
+            }
+
+            .logo {
+                flex: 1 1 auto;
+                font-size: 1rem;
+                line-height: 1.2;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding-right: 8px;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: var(--nav-offset, 64px);
+                bottom: 0;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 12px 22px 28px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                overflow-y: auto;
+                z-index: 1090;
+                pointer-events: none;
+            }
+
+            nav.is-open .nav-links {
+                display: flex;
+                pointer-events: auto;
+            }
+
+            .nav-links a {
+                margin-left: 0;
+                padding: 14px 0;
+                border-bottom: 1px solid #ececec;
+                font-size: 0.95rem;
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .btn-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-row .btn-main,
+            .btn-row .btn-outline {
+                width: 100%;
+                text-align: center;
+            }
         }
         @media (max-width: 640px) {
-            .nav-links .hide-sm { display: none; }
             .report-meta span::before { content: none; margin: 0; }
             .report-meta { flex-direction: column; gap: 4px; }
+            .stat-grid { grid-template-columns: 1fr; }
+            .pull-quote { font-size: 1.15rem; padding: 20px 8px; }
         }
     </style>
 </head>
 <body>
 
 <nav aria-label="Primary">
-    <a class="logo" href="index_3_fullwidth_responsive.html">Legacy1892.coffee</a>
-    <div class="nav-links">
-        <a href="index_3_fullwidth_responsive.html#mission">The Story</a>
-        <a href="index_3_fullwidth_responsive.html#cafe-locations" class="hide-sm">Cafés</a>
+    <div class="nav-shell">
+        <a class="logo" href="index.html">Legacy1892.coffee</a>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+        </button>
+    </div>
+    <div class="nav-links" id="primary-nav">
+        <a href="index.html#mission">The Story</a>
+        <a href="index.html#cafe-locations">Cafés</a>
         <a href="coffee_mic.html" aria-current="page">Health</a>
         <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation">Donate</a>
     </div>
@@ -478,7 +609,7 @@
                 <h2>Continue the Conversation</h2>
                 <p>Visit Cafe Bless, explore Legacy 1892 Coffee, or learn about low-cost cognitive screening through our partner initiatives.</p>
                 <div class="btn-row">
-                    <a class="btn-main" href="index_3_fullwidth_responsive.html#cafe-locations">Visit Cafe Bless</a>
+                    <a class="btn-main" href="index.html#cafe-locations">Visit Cafe Bless</a>
                     <a class="btn-outline" href="mailto:hello@cognitivewell.org?subject=Book%20a%20Coffee%20Appointment&amp;body=Hello%2C%20I%20would%20like%20to%20book%20a%20coffee%20appointment.">Book a Coffee Appointment</a>
                     <a class="btn-outline" href="https://cognitivewell.org/" target="_blank" rel="noopener">Cognitive Well Screening</a>
                     <a class="btn-outline" href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" target="_blank" rel="noopener">Support the Mission</a>
@@ -519,7 +650,7 @@
     <p>Legacy1892: A Project of AppChurch Global Foundation</p>
     <p>San Diego, CA | New York, NJ</p>
     <div class="footer-links">
-        <a href="index_3_fullwidth_responsive.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="coffee_mic.html">Health</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms of Use</a>
@@ -527,6 +658,50 @@
     <p style="margin-top:14px;">&copy; 2020–<span id="year"></span> AppChurch Global Foundation. All rights reserved.</p>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>
+
+<script>
+(function () {
+    const nav = document.querySelector('nav[aria-label="Primary"]');
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('primary-nav');
+    if (!nav || !toggle || !navLinks) return;
+
+    const mobileBreakpoint = 1024;
+
+    const updateNavOffset = function () {
+        document.documentElement.style.setProperty('--nav-offset', nav.offsetHeight + 'px');
+    };
+
+    const setMenuState = function (open) {
+        nav.classList.toggle('is-open', open);
+        document.body.classList.toggle('nav-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+
+    toggle.addEventListener('click', function () {
+        updateNavOffset();
+        setMenuState(!nav.classList.contains('is-open'));
+    });
+
+    navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            setMenuState(false);
+        });
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') setMenuState(false);
+    });
+
+    window.addEventListener('resize', function () {
+        updateNavOffset();
+        if (window.innerWidth > mobileBreakpoint) setMenuState(false);
+    });
+
+    updateNavOffset();
+})();
+</script>
 
 </body>
 </html>

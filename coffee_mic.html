@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee &amp; MCI | Brain Health Brief | Legacy1892.coffee</title>
+    <meta name="description" content="How mindful coffee rituals, community connection, and quality beans may support brain health — and why early MCI screening still matters. A Legacy 1892 Coffee research brief from AppChurch Global Foundation.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://legacy1892.coffee/coffee_mic.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Legacy 1892 Coffee">
+    <meta property="og:title" content="Coffee &amp; MCI | Brain Health Brief">
+    <meta property="og:description" content="Coffee, community, and mild cognitive impairment — what the research suggests, and how Legacy 1892 supports whole-person wellness.">
+    <meta property="og:url" content="https://legacy1892.coffee/coffee_mic.html">
+    <meta property="og:image" content="https://legacy1892.coffee/img/coffeeMCI4.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://legacy1892.coffee/img/coffeeMCI4.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-gold: #C0A06B;
+            --color-dark: #1D1D1D;
+            --color-light-bg: #F8F8F8;
+            --color-white: #FFFFFF;
+            --color-text: #333333;
+            --color-muted: #666666;
+            --font-heading: 'Playfair Display', serif;
+            --font-subheading: 'Cinzel', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: clip; }
+        body {
+            font-family: var(--font-body);
+            background: var(--color-white);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: clip;
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 16px clamp(18px, 4vw, 50px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+        .logo {
+            font-family: var(--font-subheading);
+            font-size: 1.2rem;
+            color: var(--color-dark);
+        }
+        .nav-links a {
+            color: var(--color-dark);
+            margin-left: 22px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.85;
+        }
+        .nav-links a:hover { color: var(--color-gold); opacity: 1; }
+
+        .hero-report {
+            position: relative;
+            min-height: 58vh;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            align-items: stretch;
+            background: var(--color-dark);
+            color: var(--color-white);
+        }
+        .hero-copy {
+            padding: clamp(48px, 8vw, 90px) clamp(20px, 5vw, 70px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hero-copy .eyebrow {
+            font-family: var(--font-subheading);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            font-size: 0.8rem;
+            margin-bottom: 14px;
+        }
+        .hero-copy h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            line-height: 1.15;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .hero-copy .lead {
+            font-size: 1.08rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 52ch;
+            margin-bottom: 24px;
+        }
+        .hero-image {
+            position: relative;
+            min-height: 320px;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(29,29,29,0.35), transparent 55%);
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 clamp(18px, 4vw, 32px);
+        }
+        .wide-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 clamp(18px, 4vw, 32px);
+        }
+
+        .report-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            font-size: 0.88rem;
+            color: var(--color-muted);
+            margin-bottom: 28px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .report-meta span::before {
+            content: "•";
+            margin-right: 8px;
+            color: var(--color-gold);
+        }
+        .report-meta span:first-child::before { content: none; margin: 0; }
+
+        .toc {
+            background: var(--color-light-bg);
+            border: 1px solid #ececec;
+            border-radius: 12px;
+            padding: 22px 24px;
+            margin-bottom: 36px;
+        }
+        .toc h2 {
+            font-family: var(--font-subheading);
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 12px;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc li { margin: 6px 0; }
+        .toc a { color: var(--color-dark); border-bottom: 1px solid transparent; }
+        .toc a:hover { color: var(--color-gold); border-bottom-color: var(--color-gold); }
+
+        main { padding: 56px 0 72px; }
+        .report-section { margin-bottom: 42px; }
+        .report-section h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.55rem, 3vw, 2rem);
+            color: var(--color-dark);
+            margin-bottom: 14px;
+        }
+        .report-section h3 {
+            font-family: var(--font-subheading);
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin: 22px 0 10px;
+        }
+        .report-section p { margin-bottom: 14px; }
+        .report-section ul, .report-section ol {
+            margin: 10px 0 16px 22px;
+        }
+        .report-section li { margin: 8px 0; }
+
+        .highlight-box {
+            background: var(--color-light-bg);
+            border-left: 4px solid var(--color-gold);
+            padding: 20px 22px;
+            margin: 22px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 22px 0;
+        }
+        .stat-card {
+            background: var(--color-white);
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--color-gold);
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+        .stat-card span { font-size: 0.92rem; color: var(--color-muted); }
+
+        .pull-quote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.35rem;
+            color: var(--color-dark);
+            text-align: center;
+            padding: 28px 12px;
+            margin: 28px 0;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .cta-panel {
+            background: var(--color-dark);
+            color: var(--color-white);
+            border-radius: 16px;
+            padding: clamp(28px, 5vw, 42px);
+            text-align: center;
+            margin-top: 48px;
+        }
+        .cta-panel h2 {
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            margin-bottom: 12px;
+        }
+        .cta-panel p {
+            color: rgba(255,255,255,0.88);
+            max-width: 62ch;
+            margin: 0 auto 22px;
+        }
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .btn-main {
+            background: var(--color-gold);
+            color: var(--color-dark);
+            padding: 13px 28px;
+            font-family: var(--font-subheading);
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: inline-block;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .btn-main:hover {
+            background: var(--color-white);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.7);
+            color: var(--color-white);
+            padding: 13px 28px;
+            font-family: var(--font-subheading);
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid #e8e8e8;
+            line-height: 1.6;
+        }
+        .references {
+            font-size: 0.88rem;
+            color: var(--color-muted);
+        }
+        .references li { margin: 10px 0; }
+        .references a { color: var(--color-gold); text-decoration: underline; text-underline-offset: 3px; }
+        .references-apa {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid #e8e8e8;
+            font-size: 0.76rem;
+            line-height: 1.55;
+            color: var(--color-muted);
+        }
+        .references-apa ol {
+            margin: 12px 0 0 20px;
+            padding: 0;
+        }
+        .references-apa li { margin: 10px 0; }
+        .references-apa em { font-style: italic; }
+        .references-apa a { color: var(--color-gold); text-decoration: underline; text-underline-offset: 2px; }
+
+        footer {
+            background: var(--color-dark);
+            color: rgba(255,255,255,0.75);
+            padding: 42px 20px;
+            text-align: center;
+            font-size: 0.92rem;
+        }
+        footer .gold-text { color: var(--color-gold); font-family: var(--font-subheading); }
+        .footer-links { margin-top: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.85); margin: 0 8px; }
+        .footer-links a:hover { color: var(--color-gold); }
+
+        @media (max-width: 900px) {
+            .hero-report { grid-template-columns: 1fr; }
+            .hero-image { min-height: 280px; order: -1; }
+            .hero-image::after {
+                background: linear-gradient(180deg, transparent 40%, rgba(29,29,29,0.55));
+            }
+            .nav-links a { margin-left: 14px; font-size: 0.78rem; }
+        }
+        @media (max-width: 640px) {
+            .nav-links .hide-sm { display: none; }
+            .report-meta span::before { content: none; margin: 0; }
+            .report-meta { flex-direction: column; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav aria-label="Primary">
+    <a class="logo" href="index_3_fullwidth_responsive.html">Legacy1892.coffee</a>
+    <div class="nav-links">
+        <a href="index_3_fullwidth_responsive.html#mission">The Story</a>
+        <a href="index_3_fullwidth_responsive.html#cafe-locations" class="hide-sm">Cafés</a>
+        <a href="coffee_mic.html" aria-current="page">Health</a>
+        <a href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation">Donate</a>
+    </div>
+</nav>
+
+<header class="hero-report">
+    <div class="hero-copy">
+        <p class="eyebrow">Research Brief · Legacy 1892 Coffee</p>
+        <h1>Coffee, Community &amp; Mild Cognitive Impairment</h1>
+        <p class="lead">How a daily cup — shared across generations — may support brain health, and why early awareness of MCI still changes outcomes.</p>
+        <a href="#summary" class="btn-main">Read the Brief</a>
+    </div>
+    <div class="hero-image">
+        <img src="img/coffeeMCI4.jpg" alt="Multi-generational family preparing pour-over coffee together in a warm home kitchen" width="1200" height="800" fetchpriority="high">
+    </div>
+</header>
+
+<main id="main">
+    <div class="container">
+        <div class="report-meta">
+            <span>Legacy 1892 Coffee · AppChurch Global Foundation</span>
+            <span>Brain Health &amp; Community Wellness</span>
+            <span>Updated 2026</span>
+        </div>
+
+        <nav class="toc" aria-label="Table of contents">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#summary">High Quality Coffee Help Keep Your Brain Healthy</a></li>
+                <li><a href="#what-is-mci">What Is Mild Cognitive Impairment (MCI)?</a></li>
+                <li><a href="#evidence">What the Research Says About Coffee</a></li>
+                <li><a href="#ritual">Why Ritual, Quality &amp; Connection Matter</a></li>
+                <li><a href="#legacy">Legacy 1892 &amp; Whole-Person Wellness</a></li>
+                <li><a href="#action">Practical Takeaways</a></li>
+                <li><a href="#references">References</a></li>
+            </ol>
+        </nav>
+
+        <section id="summary" class="report-section">
+            <h2>High Quality Coffee Help Keep Your Brain Healthy</h2>
+            <p>As we get older, many of us wonder how to stay mentally sharp — whether that means remembering a friend's birthday, following a sermon, or simply enjoying conversation over a morning cup. The good news is that everyday habits matter. Growing research suggests that moderate coffee drinking, especially when shared with family and friends, may be one simple way to support brain health as part of an active, connected life.</p>
+            <p>Large, long-term studies now suggest that moderate intake of <strong>caffeinated coffee</strong> — typically about two to three cups per day — is associated with lower dementia risk and slower cognitive decline. Coffee is not a cure, and it does not replace medical evaluation. But as part of a broader wellness pattern — movement, sleep, social connection, and early screening — it may be one meaningful daily habit.</p>
+            <div class="highlight-box">
+                <strong>Legacy 1892 perspective:</strong> Our mission has always been more than beans. Coffee is a sacred pause, a place where families gather, stories are remembered, and neighbors look out for one another. In that spirit, this brief connects emerging brain-health research with the community care offered through Cafe Bless, Cognitive Well screening, and AppChurch Global Foundation.
+            </div>
+        </section>
+
+        <section id="what-is-mci" class="report-section">
+            <h2>What Is Mild Cognitive Impairment (MCI)?</h2>
+            <p>MCI sits between normal age-related forgetfulness and dementia. A person with MCI notices — or others notice — changes in memory, attention, language, or judgment that are greater than expected for their age, yet daily independence is largely preserved.</p>
+            <h3>Why early detection matters</h3>
+            <ul>
+                <li>Up to half of MCI cases may remain stable or even improve with timely lifestyle and medical support.</li>
+                <li>When MCI does progress, earlier intervention allows families and clinicians to plan thoughtfully.</li>
+                <li>Screening is brief, non-invasive, and increasingly available in community settings — including faith-based and cafe-hosted programs.</li>
+            </ul>
+            <p>Common early signs include repeating questions, misplacing items more often, difficulty following conversations, or feeling less confident navigating familiar routes. If these patterns persist, a clinical evaluation — not self-diagnosis — is the right next step.</p>
+        </section>
+
+        <section id="evidence" class="report-section">
+            <h2>What the Research Says About Coffee</h2>
+            <p>Recent analyses of more than 130,000 participants followed for decades (including the Nurses' Health Study and Health Professionals Follow-Up Study) found that people with the highest intake of <strong>caffeinated coffee</strong> had roughly an <strong>18% lower risk of dementia</strong> compared with those who drank little or none. Benefits appeared strongest at about <strong>two to three cups per day</strong>.</p>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <strong>18%</strong>
+                    <span>Lower dementia risk with higher caffeinated coffee intake (long-term cohort studies)</span>
+                </div>
+                <div class="stat-card">
+                    <strong>2–3</strong>
+                    <span>Cups per day associated with the most consistent cognitive benefit</span>
+                </div>
+                <div class="stat-card">
+                    <strong>43 yrs</strong>
+                    <span>Maximum follow-up in major Harvard / Mass General Brigham analyses</span>
+                </div>
+            </div>
+
+            <h3>What may explain the effect</h3>
+            <ul>
+                <li><strong>Caffeine</strong> — decaffeinated coffee did not show the same pattern in several large studies, pointing to caffeine as a likely active component (mechanisms still being studied).</li>
+                <li><strong>Polyphenols &amp; chlorogenic acids</strong> — naturally occurring compounds in coffee that may reduce oxidative stress and inflammation.</li>
+                <li><strong>Metabolic support</strong> — associations with better cardiovascular health, which itself protects the brain.</li>
+            </ul>
+
+            <p class="pull-quote">“Coffee or caffeine can be one piece of the puzzle — not the whole answer — in protecting cognitive function as we age.”</p>
+
+            <p>Researchers emphasize that genetics, sleep, exercise, blood pressure, social engagement, and formal cognitive screening all remain essential. Coffee should be viewed as a supportive habit within a whole-person strategy — especially for older adults already monitoring heart rhythm, anxiety, reflux, or sleep quality with their physician.</p>
+        </section>
+
+        <section id="ritual" class="report-section">
+            <h2>Why Ritual, Quality &amp; Connection Matter</h2>
+            <p>Brain health is not only biochemical. Loneliness and social isolation are independent risk factors for cognitive decline. The scene above — grandparents, parents, and younger family members sharing a slow pour-over — illustrates what epidemiology often cannot measure: <em>belonging</em>.</p>
+            <h3>Elements that amplify the benefit</h3>
+            <ol>
+                <li><strong>Shared ritual</strong> — preparing coffee together creates repetition, conversation, and multi-sensory engagement.</li>
+                <li><strong>Quality beans</strong> — pristine, low-contaminant coffee from well-tended trees (like Legacy 1892's 1892 Arabica lineage) supports a cleaner daily habit.</li>
+                <li><strong>Moderation</strong> — more is not automatically better; very high caffeine can disrupt sleep, and sleep is foundational to memory consolidation.</li>
+                <li><strong>Community venues</strong> — cafes such as Cafe Bless turn a beverage into a setting for pastoral care, prayer, and wellness education.</li>
+            </ol>
+        </section>
+
+        <section id="legacy" class="report-section">
+            <h2>Legacy 1892 &amp; Whole-Person Wellness</h2>
+            <p>Legacy 1892 Coffee exists to preserve a rare agricultural heritage and to fund the nonprofit work of AppChurch Global Foundation. That work includes:</p>
+            <ul>
+                <li><strong>Cafe Bless</strong> at First Presbyterian Church, Palisades Park, NJ — a donation-based gathering place (Mon–Sun, 10AM–4PM).</li>
+                <li><strong>Community cognitive screening</strong> through Cognitive Well and partner chapels — brief, compassionate MCI awareness for families.</li>
+                <li><strong>Faith-centered hospitality</strong> — because spiritual health, mental health, and physical health are deeply intertwined.</li>
+            </ul>
+            <p>When you support Legacy 1892 through a donation, you help sustain both the preservation of historic coffee trees <em>and</em> community programs that watch over the minds and souls of neighbors.</p>
+        </section>
+
+        <section id="action" class="report-section">
+            <h2>Practical Takeaways</h2>
+            <ul>
+                <li>Enjoy coffee mindfully — preferably caffeinated, about two to three cups daily if your clinician agrees it is appropriate for you.</li>
+                <li>Prioritize sleep, walking, blood-pressure control, and regular social contact alongside any dietary habit.</li>
+                <li>Watch for persistent memory or attention changes in yourself or loved ones; encourage gentle, non-judgmental conversation.</li>
+                <li>Take advantage of community MCI education and screening events when available.</li>
+                <li>Remember: coffee supports wellness culture; it does not diagnose or treat MCI.</li>
+            </ul>
+
+            <div class="cta-panel">
+                <h2>Continue the Conversation</h2>
+                <p>Visit Cafe Bless, explore Legacy 1892 Coffee, or learn about low-cost cognitive screening through our partner initiatives.</p>
+                <div class="btn-row">
+                    <a class="btn-main" href="index_3_fullwidth_responsive.html#cafe-locations">Visit Cafe Bless</a>
+                    <a class="btn-outline" href="mailto:hello@cognitivewell.org?subject=Book%20a%20Coffee%20Appointment&amp;body=Hello%2C%20I%20would%20like%20to%20book%20a%20coffee%20appointment.">Book a Coffee Appointment</a>
+                    <a class="btn-outline" href="https://cognitivewell.org/" target="_blank" rel="noopener">Cognitive Well Screening</a>
+                    <a class="btn-outline" href="https://www.zeffy.com/en-US/donation-form/legacy-1892-coffee-donation" target="_blank" rel="noopener">Support the Mission</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="references" class="report-section references">
+            <h2>References &amp; Further Reading</h2>
+            <ol>
+                <li>Zhang Y, Wang D, et al. Caffeinated coffee intake and cognitive decline — <em>JAMA</em> (2025). Summarized by <a href="https://news.harvard.edu/gazette/story/2026/02/drinking-2-3-cups-of-coffee-a-day-tied-to-lower-dementia-risk/" target="_blank" rel="noopener">Harvard Gazette</a>.</li>
+                <li>National Institute on Aging — <a href="https://www.nia.nih.gov/health/memory-loss-and-forgetfulness/what-mild-cognitive-impairment" target="_blank" rel="noopener">What Is Mild Cognitive Impairment?</a></li>
+                <li>Alzheimer's Association — <a href="https://www.alz.org/alzheimers-dementia/what-is-dementia/related_conditions/mild-cognitive-impairment" target="_blank" rel="noopener">Mild Cognitive Impairment (MCI)</a></li>
+                <li>Cognitive Well — community cognitive health initiative of AppChurch Global Foundation: <a href="https://cognitivewell.org/" target="_blank" rel="noopener">cognitivewell.org</a></li>
+            </ol>
+
+            <div class="references-apa" aria-label="APA formatted citations">
+                <ol>
+                    <li>Zhang, Y., Liu, Y., Li, Y., Li, Y., Gu, X., Kang, J. H., Eliassen, A. H., Wang, M., Rimm, E. B., Willett, W. C., Hu, F. B., Stampfer, M. J., &amp; Wang, D. D. (2026). Coffee and tea intake, dementia risk, and cognitive function. <em>JAMA</em>, <em>335</em>(11), 961. <a href="https://doi.org/10.1001/jama.2025.27259" target="_blank" rel="noopener">https://doi.org/10.1001/jama.2025.27259</a></li>
+                    <li>Harvard Gazette. (2026, February). Drinking 2–3 cups of coffee a day tied to lower dementia risk. <em>Harvard Gazette</em>. <a href="https://news.harvard.edu/gazette/story/2026/02/drinking-2-3-cups-of-coffee-a-day-tied-to-lower-dementia-risk/" target="_blank" rel="noopener">https://news.harvard.edu/gazette/story/2026/02/drinking-2-3-cups-of-coffee-a-day-tied-to-lower-dementia-risk/</a></li>
+                    <li>Mass General Brigham. (2026, February 9). Consuming 2–3 cups of coffee daily associated with lower dementia risk, better cognitive function. <em>Mass General Brigham Newsroom</em>. <a href="https://www.massgeneralbrigham.org/en/about/newsroom/press-releases/consuming-coffee-associated-with-lower-dementia-risk" target="_blank" rel="noopener">https://www.massgeneralbrigham.org/en/about/newsroom/press-releases/consuming-coffee-associated-with-lower-dementia-risk</a></li>
+                    <li>Colditz, G. A. (1997). The Nurses' Health Study: 20-year contribution to the understanding of health among women. <em>Journal of Women's Health</em>, <em>6</em>(1), 49–63. <a href="https://doi.org/10.1089/jwh.1997.6.49" target="_blank" rel="noopener">https://doi.org/10.1089/jwh.1997.6.49</a></li>
+                    <li>Rimm, E. B., Giovannucci, E. L., Willett, W. C., Colditz, G. A., Ascherio, A., Rosner, B., &amp; Stampfer, M. J. (1991). Prospective study of alcohol consumption and risk of coronary disease in men. <em>The Lancet</em>, <em>338</em>(8765), 464–467. <a href="https://doi.org/10.1016/0140-6736(91)90542-W" target="_blank" rel="noopener">https://doi.org/10.1016/0140-6736(91)90542-W</a></li>
+                    <li>National Institute on Aging. (2021, April 12). <em>What is mild cognitive impairment?</em> U.S. Department of Health and Human Services, National Institutes of Health. <a href="https://www.nia.nih.gov/health/memory-loss-and-forgetfulness/what-mild-cognitive-impairment" target="_blank" rel="noopener">https://www.nia.nih.gov/health/memory-loss-and-forgetfulness/what-mild-cognitive-impairment</a></li>
+                    <li>Alzheimer's Association. (n.d.). <em>Mild cognitive impairment (MCI)</em>. <a href="https://www.alz.org/alzheimers-dementia/what-is-dementia/related_conditions/mild-cognitive-impairment" target="_blank" rel="noopener">https://www.alz.org/alzheimers-dementia/what-is-dementia/related_conditions/mild-cognitive-impairment</a></li>
+                    <li>Cognitive Well. (n.d.). <em>Cognitive Well: Free MCI screening &amp; cognitive wellness</em>. AppChurch Global Foundation. <a href="https://cognitivewell.org/" target="_blank" rel="noopener">https://cognitivewell.org/</a></li>
+                </ol>
+            </div>
+        </section>
+
+        <p class="disclaimer"><strong>Medical disclaimer:</strong> This page is educational material from Legacy 1892 Coffee / AppChurch Global Foundation. It is not medical advice, diagnosis, or treatment. Consult a qualified healthcare provider about caffeine use, cognitive symptoms, and screening options appropriate for your health history.</p>
+    </div>
+</main>
+
+<footer>
+    <div class="gold-text">AppChurch Global Foundation</div>
+    <p>501(c)(3) Nonprofit Organization</p>
+    <p>Legacy1892: A Project of AppChurch Global Foundation</p>
+    <p>San Diego, CA | New York, NJ</p>
+    <div class="footer-links">
+        <a href="index_3_fullwidth_responsive.html">Home</a>
+        <a href="coffee_mic.html">Health</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms of Use</a>
+    </div>
+    <p style="margin-top:14px;">&copy; 2020–<span id="year"></span> AppChurch Global Foundation. All rights reserved.</p>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+</body>
+</html>
